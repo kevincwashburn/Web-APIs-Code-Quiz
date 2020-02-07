@@ -16,4 +16,4 @@ Link to Deployed Site:
 https://kevincwashburn.github.io/Web-APIs-Code-Quiz/
 
 Screenshot: 
-![alt-text](file:///Users/Kevin/Desktop/deployed-js-quiz.png)
+![alt-text](Assets/Images/deployed-js-quiz.png)
