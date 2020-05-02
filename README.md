@@ -5,8 +5,8 @@ This repository contains a web-based multiple choice quiz on JavaScript. The ind
 After the index.html page is loaded, the user can click the "Start Quiz!" button to begin.
 
 - Once the quiz starts, a timer in the right-hand corner begins counting down from 60 seconds. 
-- When the user selects an incorrect answer 5 seconds is subtracted from the timer. 
-- When the user clicks on their anser, the next question will appear.
+- When the user selects an incorrect answer 5 seconds are subtracted from the timer. 
+- When the user clicks on their answer, the next question will appear.
 - If the timer hits 0, or the user answers all the questions before the timer is up, the quiz ends and a "Game Over" screen appears which displays their score, an input box for their initials, and a submit button. 
 - The user's score is calculated by how many seconds were left on the timer when the quiz stopped.
 - The user can type in their initials in the input box and once the "submit" button is clicked, they are redirected to the highscore.html page which displays an ordered list of highscores from the computer's local storage.
