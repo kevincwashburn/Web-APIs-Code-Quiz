@@ -103,7 +103,7 @@ function dynamicTimer() {
     timerId = setInterval(function() {
       timerEl.textContent = timeLeft + " seconds remaining";
       timeLeft--;
-      homeScreen.style.display = "none";                              // may have to move display:none/block into another function
+      homeScreen.style.display = "none";
       questionCard.style.display = "block";                                               
   
       if (timeLeft === 0) {
@@ -131,20 +131,3 @@ function startQuiz() {
 
   startBtn.addEventListener("click", startQuiz);
   btnSaveScore.addEventListener("click", saveHighScore);
- 
-
-
-
-  // listBtnAnswer.forEach(function(button) {
-  //   button.addEventListener("click", questionChecker)
-  // })
-  
-
-
-  // var highScore = localStorage.getItem("highscore");
-  //   if(!highScore)highScore=[]
-  //   var tempObj = {
-  //     initials: initials, score: score
-  //   }
-  //   highScore.push(tempObj)
-  //   localStorage.setItem("highscore,"(JSON.stringify(highScore));       //fix this line...slack
