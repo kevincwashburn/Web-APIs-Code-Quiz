@@ -56,6 +56,7 @@ function questionChecker(answer) {
   if(questionArray[questionNumber].choices[answer] !== questionArray[questionNumber].answer) {
     timeLeft -= 5;
     timerEl.textContent = timeLeft + " seconds remaining";
+    document.getElementById("response-alert").textContent = "incorrect!";
   }
   if (timeLeft === 0 || timeLeft < 0) {
     timerEl.textContent = "";                                                 
@@ -83,12 +84,6 @@ function gameOver() {
 }
 
 function saveHighScore(){          
-  // var highscores = [
-  //   {
-  //     initials: initialsInput,
-  //     score: timeLeft
-  //   }
-  // ]
 
   var newHighScore = {
       score: timeLeft,
