@@ -57,6 +57,8 @@ function questionChecker(answer) {
     timeLeft -= 5;
     timerEl.textContent = timeLeft + " seconds remaining";
     document.getElementById("response-alert").textContent = "incorrect!";
+  } else if(questionArray[questionNumber].choices[answer] === questionArray[questionNumber].answer) {
+    document.getElementById("response-alert").textContent = "correct!";
   }
   if (timeLeft === 0 || timeLeft < 0) {
     timerEl.textContent = "";                                                 
@@ -67,7 +69,7 @@ function questionChecker(answer) {
   if(questionNumber === questionArray.length){
     gameOver()
   }else{
-    loadQuestion()       
+    loadQuestion();
   }
 }
 
