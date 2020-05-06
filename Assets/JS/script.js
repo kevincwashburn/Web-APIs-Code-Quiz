@@ -72,13 +72,13 @@ function questionChecker(answer) {
 
 function gameOver() {
   clearInterval(timerId);          
-  gameOverScreen.style.display = "block";                              
-  questionCard.style.display = "none";
-  gameOverH3.innerHTML = "Game Over!";
+  $(gameOverScreen).show();
+  $(questionCard).hide();
+  gameOverH3.html("Game Over!");
   if (timeLeft < 0) {
     timeLeft = 0;
   }
-  scoreText.textContent = "Your score is " + timeLeft;
+  $(scoreText).text(`Your score is ${timeLeft}`);
 
 }
 
