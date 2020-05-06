@@ -68,7 +68,7 @@ function questionChecker(answer) {
   }else{
     loadQuestion();
   }
-}
+};
 
 function gameOver() {
   clearInterval(timerId);          
@@ -79,8 +79,7 @@ function gameOver() {
     timeLeft = 0;
   }
   $(scoreText).text(`Your score is ${timeLeft}`);
-
-}
+};
 
 function saveHighScore(){          
   let newHighScore = {
@@ -91,8 +90,7 @@ function saveHighScore(){
   highScoreArray.push(newHighScore)
   localStorage.setItem("highScores", JSON.stringify(highScoreArray));
   window.location.href = "highscore.html";
-
-}
+};
   
 function dynamicTimer() {
     timerId = setInterval(function() {
@@ -105,16 +103,16 @@ function dynamicTimer() {
         gameOver();                               
       }
     },1000);
-  }
+  };
 
 function loadQuestion() {
-    questionEl.textContent = questionArray[questionNumber].title;
-    for(let i = 0; i < questionArray[questionNumber].choices.length; i++) {
-      let answerButton = document.querySelector("#answerBtn" + i);
-      answerButton.setAttribute("onclick", "questionChecker("+i+")");
-      answerButton.textContent = questionArray[questionNumber].choices[i];
+  $(questionEl).text(questionArray[questionNumber].title);
+  for (let i = 0; i < questionArray[questionNumber].choices.length; i++) {
+    let answerButton = $("#answerBtn" + i);
+    $(answerButton).attr("onclick", "questionChecker(" + i + ")");
+    $(answerButton).text(questionArray[questionNumber].choices[i]);
     }
-}
+};
 
 function startQuiz() {
   dynamicTimer();
