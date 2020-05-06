@@ -1,22 +1,21 @@
-var timerEl = document.getElementById("timer");
-var homeScreen = document.getElementById("card-1");
-var questionCard = document.getElementById("question-card");
-var responseEl = document.getElementById("response-alert");
-var gameOverScreen = document.getElementById("game-over-screen");     
-var gameOverH3 = document.getElementById("game-over");
-var scoreText = document.getElementById("score-text");
-var initialsInput = document.getElementById("initials");
+let timerEl = $("#timer");
+let homeScreen = $("#card-1");
+let questionCard = $("#question-card");
+let responseEl = $("#response-alert");
+let gameOverScreen = $("#game-over-screen");
+let gameOverH3 = $("#game-over");
+let scoreText = $("#score-text");
+let initialsInput = $("#initials");
 
-var startBtn = document.getElementById("start");
-var btnSaveScore = document.getElementById("btn-initials");
-var listBtnAnswer = document.querySelectorAll(".btn-answer")
+let startBtn = $("#start");
+let btnSaveScore = $("#btn-initials");
 
-var questionEl = document.getElementById("question");
-var questionNumber = 0;
-var timeLeft = 60;
-var timerId;        //set variable so it's global, then it is defined in a function below, and can be referenced anywhere...
+let questionEl = $("#question");
+let questionNumber = 0;
+let timeLeft = 60;
+let timerId;
 
-var questionArray = [
+let questionArray = [
     {
       title: "Commonly used data types DO NOT include:",
       choices: ["strings", "booleans", "alerts", "numbers"],
@@ -52,22 +51,20 @@ var questionArray = [
   ];
 
 function questionChecker(answer) {
-  console.log(answer);
   if(questionArray[questionNumber].choices[answer] !== questionArray[questionNumber].answer) {
     timeLeft -= 5;
-    timerEl.textContent = timeLeft + " seconds remaining";
-    document.getElementById("response-alert").textContent = "incorrect!";
+    $("#response-alert").text("incorrect!")
   } else if(questionArray[questionNumber].choices[answer] === questionArray[questionNumber].answer) {
-    document.getElementById("response-alert").textContent = "correct!";
+    $("#response-alert").text("correct!");
   }
   if (timeLeft === 0 || timeLeft < 0) {
-    timerEl.textContent = "";                                                 
-    clearInterval(timerId);      
-    gameOver();                                 
+    $(timerEl).text("");
+    clearInterval(timerId);
+    gameOver();                             
   }
   questionNumber++
   if(questionNumber === questionArray.length){
-    gameOver()
+    setTimeout(gameOver, 1000);
   }else{
     loadQuestion();
   }
@@ -87,12 +84,12 @@ function gameOver() {
 
 function saveHighScore(){          
 
-  var newHighScore = {
+  let newHighScore = {
       score: timeLeft,
       initials: initialsInput.value
     }
 
-  var highScoreArray = JSON.parse(localStorage.getItem("highScores") || "[]")
+  let highScoreArray = JSON.parse(localStorage.getItem("highScores") || "[]")
 
   highScoreArray.push(newHighScore)
   localStorage.setItem("highScores", JSON.stringify(highScoreArray));
@@ -118,8 +115,8 @@ function dynamicTimer() {
 
 function loadQuestion() {
     questionEl.textContent = questionArray[questionNumber].title;
-    for(var i = 0; i < questionArray[questionNumber].choices.length; i++) {
-      var answerButton = document.querySelector("#answerBtn" + i);
+    for(let i = 0; i < questionArray[questionNumber].choices.length; i++) {
+      let answerButton = document.querySelector("#answerBtn" + i);
       answerButton.setAttribute("onclick", "questionChecker("+i+")");
       answerButton.textContent = questionArray[questionNumber].choices[i];
     }
