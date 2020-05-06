@@ -83,17 +83,13 @@ function gameOver() {
 }
 
 function saveHighScore(){          
-
   let newHighScore = {
       score: timeLeft,
       initials: initialsInput.value
     }
-
   let highScoreArray = JSON.parse(localStorage.getItem("highScores") || "[]")
-
   highScoreArray.push(newHighScore)
   localStorage.setItem("highScores", JSON.stringify(highScoreArray));
-
   window.location.href = "highscore.html";
 
 }
