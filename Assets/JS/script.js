@@ -117,8 +117,7 @@ function loadQuestion() {
 function startQuiz() {
   dynamicTimer();
   loadQuestion();
-}
+};
 
-
-  startBtn.addEventListener("click", startQuiz);
-  btnSaveScore.addEventListener("click", saveHighScore);
+$(startBtn).click(startQuiz);
+$(btnSaveScore).click(saveHighScore);
