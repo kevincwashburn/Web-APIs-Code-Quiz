@@ -96,16 +96,14 @@ function saveHighScore(){
   
 function dynamicTimer() {
     timerId = setInterval(function() {
-      timerEl.textContent = timeLeft + " seconds remaining";
+      $(timerEl).text(`${timeLeft} seconds remaining`);
       timeLeft--;
-      homeScreen.style.display = "none";
-      questionCard.style.display = "block";                                               
-  
+      $(homeScreen).hide();
+      $(questionCard).show();
       if (timeLeft === 0) {
-        timerEl.textContent = "";                                                       
-        gameOver();                                 
+        $(timerEl).text("");
+        gameOver();                               
       }
-  
     },1000);
   }
 
