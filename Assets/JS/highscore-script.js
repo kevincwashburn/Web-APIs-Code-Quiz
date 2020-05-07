@@ -4,11 +4,10 @@ let highScoresList = $("#high-scores-list")
 
 
 function renderHighScores() {
-    for(var i = 0; i < highScores.length; i++) {
-            // console.log(highScores[i])
-        var li = document.createElement("li");
-        li.textContent = highScores[i].initials.toUpperCase() + " " + highScores[i].score;
-        highScoresList.appendChild(li);
+    for(let i = 0; i < highScores.length; i++) {
+        let li = document.createElement("li");
+        $(li).text(`${highScores[i].initials.toUpperCase()} ${highScores[i].score}`);
+        highScoresList.append(li);
     }
 }
 
