@@ -84,7 +84,7 @@ function gameOver() {
 function saveHighScore(){          
   let newHighScore = {
       score: timeLeft,
-      initials: initialsInput.value
+      initials: $(initialsInput).val()
     }
   let highScoreArray = JSON.parse(localStorage.getItem("highScores") || "[]")
   highScoreArray.push(newHighScore)
