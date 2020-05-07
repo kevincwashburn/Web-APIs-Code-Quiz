@@ -25,7 +25,7 @@ function goBack() {
   
 function clearScores() {
         //clears highScoresList(ol) element
-    highScoresList.innerHTML= "";
+    $(highScoresList).html("");
     localStorage.clear();                                                  
 }
 
