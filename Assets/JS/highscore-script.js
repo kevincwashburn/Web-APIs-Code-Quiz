@@ -31,6 +31,6 @@ function clearScores() {
 
 getScore();
 
-  btnGoBack.addEventListener("click", goBack);
-  btnClearScores.addEventListener("click", clearScores);
+$(btnGoBack).click(goBack);
+$(btnClearScores).click(clearScores);
  
